@@ -10,6 +10,8 @@ import { User } from './model/user';
 export class AppComponent {  
   title = 'angular-form';
 
+  alertMessage = "";
+
   user: User = {
     email: "vinod12345@gmail.com",
     password: "123456",
@@ -18,6 +20,11 @@ export class AppComponent {
 
   onSubmit(form: NgForm){
     console.log(form.value);
+    this.alertMessage = "Form is submitted successfully";
+  }
+
+  onAlertClose(){
+    this.alertMessage = "";
   }
 
 }
