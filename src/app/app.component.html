@@ -17,8 +17,8 @@
       <div class="mb-3">
         <label for="username" class="form-label">User name</label>
         <input type="text" class="form-control" #username="ngModel" name="username" ngModel required minlength="5" pattern="^[A-Za-z ]+$">
-        <div *ngIf="username.dirty && username.invalid">
-          <div *ngIf="username.errors?.required" class="alert alert-danger">
+        
+          <div *ngIf="!username.untouched && username.errors?.required" class="alert alert-danger">
             Please enter uesrname
           </div>
           <div *ngIf="username.errors?.minlength" class="alert alert-danger">
@@ -27,7 +27,7 @@
           <div *ngIf="username.errors?.pattern" class="alert alert-danger">
             Uesr name contains only letters and space 
           </div>          
-        </div>
+        
       </div>     
       
       <div class="mb-3">
