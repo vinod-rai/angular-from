@@ -20,10 +20,10 @@
         </div> 
       </div>
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="checkme" name="checkme" ngModel>
+        <input type="checkbox" class="form-check-input" #checkme="ngModel" name="checkme" ngModel>
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>      
+      <button [disabled]="!form.valid || !checkme.value" type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>
