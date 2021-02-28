@@ -6,11 +6,18 @@
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" ngModel>        
+        <input type="email" required class="form-control" #email="ngModel" name="email" ngModel>
+        <div *ngIf="!email.valid && !email.untouched" class="alert alert-danger">
+          Please enter email
+        </div>        
       </div>
+
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" ngModel>
+        <input type="password" required class="form-control" #password="ngModel" name="password" ngModel>
+        <div *ngIf="!password.valid && !password.untouched" class="alert alert-danger">
+          Please enter password
+        </div> 
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="checkme" name="checkme" ngModel>
